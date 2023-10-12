@@ -38,7 +38,7 @@ OS Supported:
 Run the script as the root user:
 
 ```
-sudo wget https://raw.githubusercontent.com/thac-01/zabbix-script/main/deploy/proxy/deploy-proxy.sh -O deploy-proxy.sh
+sudo wget https://raw.githubusercontent.com/thac-01/zabbix-scripts/main/deploy/proxy/deploy-proxy.sh -O deploy-proxy.sh
 sudo bash deploy-proxy.sh
 ```
 
@@ -47,6 +47,6 @@ sudo bash deploy-proxy.sh
 Run the script as the root user:
 
 ```
-sudo wget https://raw.githubusercontent.com/thac-01/zabbix-script/main/deploy/proxy/remove-proxy.sh -O remove-proxy.sh
+sudo wget https://raw.githubusercontent.com/thac-01/zabbix-scripts/main/deploy/proxy/remove-proxy.sh -O remove-proxy.sh
 sudo bash remove-proxy.sh
 ```
