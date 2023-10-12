@@ -1,0 +1,3 @@
+Group,Customer,PrimaryPOCName,PrimaryPOCEmail,PrimaryPOCCell,PrimaryPOCScreenName,PrimaryPOCNotes,SecondaryPOCName,SecondaryPOCScreenName
+Test,Cap,John Doe,jdoe@example.com,1234567890,jdoe,The future is now,Jane Smith,jsmith
+Palla,Rossa,massimo,massimo@gmail,1234567890,Massimo,le mie note,Massiminoooo,BRUTTO
