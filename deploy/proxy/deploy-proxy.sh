@@ -258,8 +258,6 @@ else
     exit 1
 fi
 
-systemctl stop zabbix-proxy
-
 # Configurazione DB per Zabbix proxy
 echo "[Info] Creating zabbix_proxy Database and creating zabbix user"
 if sudo -u postgres psql -c "SELECT 1" >/dev/null 2>&1; then
