@@ -340,6 +340,7 @@ sed -i.bck "s/# HistoryCacheSize=16M/HistoryCacheSize=512M/" "$proxy_conf"
 sed -i.bck "s/# HistoryIndexCacheSize=4M/HistoryIndexCacheSize=512M/" "$proxy_conf"
 sed -i.bck "s/# StartVMwareCollectors=0/StartVMwareCollectors=1/" "$proxy_conf"
 sed -i.bck "s/Timeout=4/Timeout=30/" "$proxy_conf"
+sed -i.bck "s/# ConfigFrequency=3600/ConfigFrequency=900/" "$proxy_conf"
 check_command_result
 echo "[Success] Zabbix Proxy Configuration Completed"
 
