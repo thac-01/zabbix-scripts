@@ -22,8 +22,8 @@ OS Supported:
 | OS        | Support Status |
 |-----------|----------------|
 | Debian 12 | OK / Tested    |
-| Debian 11 | OK             |
-| Debian 10 | OK             |
+| Debian 11 | OK / Tested    |
+| Debian 10 | OK / Tested    |
 | Ubuntu 22.04 |  OK / Tested |
 | Ubuntu 20.04 |  OK   |
 | Ubuntu 19.04 |  OK   |
@@ -49,4 +49,10 @@ Run the script as the root user:
 ```
 sudo wget https://raw.githubusercontent.com/thac-01/zabbix-scripts/main/deploy/proxy/remove-proxy.sh -O remove-proxy.sh
 sudo bash remove-proxy.sh
+```
+
+## Thourbleshotting
+```
+apt install dos2unix
+unixdos <file>
 ```
