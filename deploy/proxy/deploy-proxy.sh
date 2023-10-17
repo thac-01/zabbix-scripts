@@ -300,7 +300,7 @@ if sudo -u postgres psql -c "SELECT 1" >/dev/null 2>&1; then
     echo "[Success] The user Zabbix, user zbx_monitor, and the zabbix_proxy database were successfully created."
 
     # Configuro tuning per 2 core e 4GB di RAM
-    sudo -u postgres psql -c "ALTER SYSTEM SET max_connections = '300';"
+    sudo -u postgres psql -c "ALTER SYSTEM SET max_connections = '500';"
     sudo -u postgres psql -c "ALTER SYSTEM SET shared_buffers = '1GB';"
     sudo -u postgres psql -c "ALTER SYSTEM SET effective_cache_size = '3GB';"
     sudo -u postgres psql -c "ALTER SYSTEM SET maintenance_work_mem = '256MB';"
@@ -328,7 +328,7 @@ sed -i.bck "s/Hostname=Zabbix proxy/Hostname=$var1/" "$proxy_conf"
 sed -i.bck "s/ServerActive=127.0.0.1/ServerActive=$var2/" "$proxy_conf"
 sed -i.bck "s/# DBPassword=/DBPassword=$DBpassword/" "$proxy_conf"
 sed -i.bck "s/StatsAllowedIP=127.0.0.1/StatsAllowedIP=127.0.0.1,$var2/" "$proxy_conf"
-sed -i.bck "s/# ProxyOfflineBuffer=1/ProxyOfflineBuffer=8/" "$proxy_conf"
+sed -i.bck "s/# ProxyOfflineBuffer=1/ProxyOfflineBuffer=24/" "$proxy_conf"
 sed -i.bck "s/# StartPollers=5/StartPollers=20/" "$proxy_conf"
 sed -i.bck "s/# StartPreprocessors=3/StartPreprocessors=20/" "$proxy_conf"
 sed -i.bck "s/# StartPollersUnreachable=1/StartPollersUnreachable=20/" "$proxy_conf"
