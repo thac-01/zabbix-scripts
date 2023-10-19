@@ -343,7 +343,7 @@ sed -i.bck "s/ServerActive=127.0.0.1/ServerActive=$var2/" "$agent_conf"
 sed -i.bck "s/Hostname=Zabbix server/Hostname=$var1/" "$agent_conf"
 sed -i.bck "s/# Timeout=3/Timeout=30/" "$agent_conf"
 sed -i.bck "s/# Plugins.SystemRun.LogRemoteCommands=0/Plugins.SystemRun.LogRemoteCommands=1/" "$agent_conf"
-sed -i.bck "s/# DenyKey=system.run[*]/AllowKey=system.run[*]/" "$agent_conf"
+sed -i.bck "s/# DenyKey=system.run/AllowKey=system.run[*]/" "$agent_conf"
 check_command_result
 echo "[Success] Zabbix Agent 2 Configuration Completed"
 
