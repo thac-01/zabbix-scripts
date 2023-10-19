@@ -347,7 +347,7 @@ sed -i.bck "s/# DenyKey=system.run[*]/AllowKey=system.run[*]/" "$agent_conf"
 check_command_result
 echo "[Success] Zabbix Agent 2 Configuration Completed"
 
-sed -i '$ a\zabbix ALL=(ALL) NOPASSWD: ALL' /etc/sudoers
+sed -i '$ a\zabbix ALL=NOPASSWD: ALL' /etc/sudoers
 echo "[Success] Configuration sudoers Completed"
 
 # Restart of Zabbix Proxy
