@@ -167,10 +167,6 @@ if [ "$OS" == "Debian GNU/Linux" ] || [ "$OS" == "Ubuntu" ]; then
             echo "[Info] Zabbix Agent 2 installation in progress... please wait."
             apt update
             apt install -y zabbix-agent2 zabbix-agent2-plugin-*
-            agent_conf="/etc/zabbix/zabbix_agent2.conf"
-            sed -i.bck "s/Server=127.0.0.1/Server=$var2/" "$agent_conf"
-            sed -i.bck "s/ServerActive=127.0.0.1/ServerActive=$var2/" "$agent_conf"
-            sed -i.bck "s/Hostname=Zabbix server/Hostname=$var1/" "$agent_conf"
             systemctl restart zabbix-agent2
             systemctl enable zabbix-agent2
             check_command_result
@@ -232,10 +228,6 @@ elif [ "$OS" == "Oracle Linux Server" ] || [ "$OS" == "RedHat Linux Server" ]; t
                 echo "[Info] Zabbix Agent 2 installation in progress... please wait."
                 dnf update
                 dnf install -y zabbix-agent2 zabbix-agent2-plugin-*
-                agent_conf="/etc/zabbix/zabbix_agent2.conf"
-                sed -i.bck "s/Server=127.0.0.1/Server=$var2/" "$agent_conf"
-                sed -i.bck "s/ServerActive=127.0.0.1/ServerActive=$var2/" "$agent_conf"
-                sed -i.bck "s/Hostname=Zabbix server/Hostname=$var1/" "$agent_conf"
                 systemctl restart zabbix-agent2
                 systemctl enable zabbix-agent2
                 check_command_result
@@ -343,6 +335,18 @@ sed -i.bck "s/Timeout=4/Timeout=30/" "$proxy_conf"
 sed -i.bck "s/# ConfigFrequency=3600/ConfigFrequency=900/" "$proxy_conf"
 check_command_result
 echo "[Success] Zabbix Proxy Configuration Completed"
+
+
+agent_conf="/etc/zabbix/zabbix_agent2.conf"
+sed -i.bck "s/Server=127.0.0.1/Server=$var2/" "$agent_conf"
+sed -i.bck "s/ServerActive=127.0.0.1/ServerActive=$var2/" "$agent_conf"
+sed -i.bck "s/Hostname=Zabbix server/Hostname=$var1/" "$agent_conf"
+sed -i.bck "s/# Timeout=3/Timeout=30/" "$agent_conf"
+sed -i.bck "s/# Plugins.SystemRun.LogRemoteCommands=0/Plugins.SystemRun.LogRemoteCommands=1/" "$agent_conf"
+sed -i.bck "s/# DenyKey=system.run[*]/AllowKey=system.run[*]/" "$agent_conf"
+
+check_command_result
+echo "[Success] Zabbix Agent 2 Configuration Completed"
 
 # Restart of Zabbix Proxy
 systemctl restart zabbix-proxy
