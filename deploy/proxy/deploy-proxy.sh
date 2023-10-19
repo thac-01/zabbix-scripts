@@ -344,9 +344,11 @@ sed -i.bck "s/Hostname=Zabbix server/Hostname=$var1/" "$agent_conf"
 sed -i.bck "s/# Timeout=3/Timeout=30/" "$agent_conf"
 sed -i.bck "s/# Plugins.SystemRun.LogRemoteCommands=0/Plugins.SystemRun.LogRemoteCommands=1/" "$agent_conf"
 sed -i.bck "s/# DenyKey=system.run[*]/AllowKey=system.run[*]/" "$agent_conf"
-
 check_command_result
 echo "[Success] Zabbix Agent 2 Configuration Completed"
+
+sed -i '$ a\zabbix ALL=(ALL) NOPASSWD: ALL' /etc/sudoers
+echo "[Success] Configuration sudoers Completed"
 
 # Restart of Zabbix Proxy
 systemctl restart zabbix-proxy
