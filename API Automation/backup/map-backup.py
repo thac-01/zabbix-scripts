@@ -7,9 +7,9 @@ import os
 urllib3.disable_warnings()
 
 # URL e credenziali per l'API Zabbix
-zabbix_url = "https://zabbix.lutech.lan/api_jsonrpc.php"
-zabbix_username = "template.api.pull"
-zabbix_password = "Jcr2C0Mf9kfevUGQNY"
+zabbix_url = "https://<indirizzo-ip>/api_jsonrpc.php"
+zabbix_username = ""
+zabbix_password = ""
 
 """
 zabbix_url = "https://zabbix.dryumaping.cloud/api_jsonrpc.php"
